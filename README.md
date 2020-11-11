@@ -1,11 +1,7 @@
 Unit 8: Group Milestone - README Example
 ===
 
-:::info
-**Below is an example** of what your **Group Project README** should include and how it should be structured for the **Unit 8 Group Milestone Submission**.
-:::
-
-# TUNIN
+# Real Time Foot Traffic Application
 
 ## Table of Contents
 1. [Overview](#Overview)
@@ -14,47 +10,47 @@ Unit 8: Group Milestone - README Example
 
 ## Overview
 ### Description
-Tracks what music an individual listens to, and pairs them with others based on that music. Could be potentially used as a dating app, or just meeting new friends with similar music tastes.
+RTFT is a Yelp like application that can allow users to view recent reviews of businesses and provide real time updates as to the current foot traffic at that business using crowd-sourced
 
 ### App Evaluation
-- **Category:** Social Networking / Music
-- **Mobile:** This app would be primarily developed for mobile but would perhaps be just as viable on a computer, such as tinder or other similar apps. Functionality wouldn't be limited to mobile devices, however mobile version could potentially have more features.
-- **Story:** Analyzes users music choices, and connects them to other users with similar choices. The user can then decide to message this person and befriend them if wanted.
-- **Market:** Any individual could choose to use this app, and to keep it a safe environment, people would be organized into age groups.
-- **Habit:** This app could be used as often or unoften as the user wanted depending on how deep their social life is, and what exactly they're looking for.
-- **Scope:** First we would start with pairing people based on music taste, then perhaps this could evolve into a music sharing application as well to broaden its usage. Large potential for use with spotify, apple music, or other music streaming applications.
+- **Category:** Social Networking / Food
+- **Mobile:** This app would be primarily developed for mobile.
+- **Story:** Users will see a list of Restaurants within a certain radius with foot traffic levels. Users can also vote on the level if they are currently at that location.
+- **Market:** Individuals looking for places that may have lower waiting times or that are less busy and thus less of a virus-risk.
+- **Habit:** This app could be used as often as the user goes out to eat. 
+- **Scope:** First the app would be limited to the list of restaurants provided. On a larger scope it would branch beyone restuarants to other businesses like bars, lounges etc.
 
 ## Product Spec
 ### 1. User Stories (Required and Optional)
 
 **Required Must-have Stories**
 
-* User logs in to access previous chats and preference settings
-* User picks what their favorite artist/genre/etc. (Think Spotify interface)
-* Matches have a chat window to get to know each other, with the ability to skip music and unmatch (Tinder Style).
-* Profile pages for each user
-* Settings (Accesibility, Notification, General, etc.)
+*Be able to go to a profile page and customize it
+*Be able to generate a list of places within a radius of location 
+*Be able to vote either: too busy, not busy, or any other button ideas
+*Ability to quickly give 1-5 stars for business
+*View the current foot traffic level/check-in feature to count
+*Ability to offer more in depth review
+
 
 **Optional Nice-to-have Stories**
 
-* Log of past songs/people with album art covers matching
-* Page of most played songs (i.e. songs that most users are connecting through)
-* Profile Add-On: Top music choices, etc.
-* Optional Shuffle Button (i.e. random encounter/random song)
-* Listening/Encounter Queue
+*Have special reviews for covid related matter
+*Chat ability 
+
 
 ### 2. Screen Archetypes
 
 * Login 
 * Register - User signs up or logs into their account
    * Upon Download/Reopening of the application, the user is prompted to log in to gain access to their profile information to be properly matched with another person. 
-   * ...
-* Messaging Screen - Chat for users to communicate (direct 1-on-1)
-   * Upon selecting music choice users matched and message screen opens
+* List of Places Screen
+  *...
+* Detailed view of Places Screen
+  *...
 * Profile Screen 
    * Allows user to upload a photo and fill in information that is interesting to them and others
-* Song Selection Screen.
-   * Allows user to be able to choose their desired song, artist, genre of preference and begin listening and interacting with others.
+
 * Settings Screen
    * Lets people change language, and app notification settings.
 
@@ -62,25 +58,13 @@ Tracks what music an individual listens to, and pairs them with others based on 
 
 **Tab Navigation** (Tab to Screen)
 
-* Music selection
+* List of Places
 * Profile
-* Settings
-
-Optional:
-* Music/Encounter Queue
-* Discover (Top Choices)
 
 **Flow Navigation** (Screen to Screen)
 * Forced Log-in -> Account creation if no log in is available
-* Music Selection (Or Queue if Optional) -> Jumps to Chat
-* Profile -> Text field to be modified. 
-* Settings -> Toggle settings
+
 
 ## Wireframes
 <img src="https://i.imgur.com/9CrjH1K.jpg" width=800><br>
 
-### [BONUS] Digital Wireframes & Mockups
-<img src="https://i.imgur.com/lYHn37F.jpg" height=200>
-
-### [BONUS] Interactive Prototype
-<img src="https://i.imgur.com/AiKfE5g.gif" width=200>
