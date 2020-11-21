@@ -76,17 +76,17 @@ RTFT is a Yelp like application that can allow users to view recent reviews of b
 pod 'Firebase/Auth'
 pod 'GoogleSignIn'
 
-#### In your app delegate, import the following header files:
+## [x] In your app delegate, import the following header files:
 
 import Firebase
 import GoogleSignIn
 
-#### In the view controller of your sign-in view, import the following header files:
+## [x] In the view controller of your sign-in view, import the following header files:
 
 import Firebase
 import GoogleSignIn
 
- #### In the app delegate, implement the GIDSignInDelegate protocol to handle the sign-in process by defining the following methods:
+ ## [x] In the app delegate, implement the GIDSignInDelegate protocol to handle the sign-in process by defining the following methods:
 func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
   // ...
   if let error = error {
@@ -105,12 +105,12 @@ func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withErro
     // ...
 }
 
-#### In the view controller, override the viewDidLoad method to set the presenting view controller of the GIDSignIn object, and (optionally) to sign in silently when possible.
+## [x] In the view controller, override the viewDidLoad method to set the presenting view controller of the GIDSignIn object, and (optionally) to sign in silently when possible.
 
 GIDSignIn.sharedInstance()?.presentingViewController = self
 GIDSignIn.sharedInstance().signIn()
 
-##### In the signIn:didSignInForUser:withError: method, get a Google ID token and Google access token from the GIDAuthentication object and exchange them for a Firebase credential:
+## [x] In the signIn:didSignInForUser:withError: method, get a Google ID token and Google access token from the GIDAuthentication object and exchange them for a Firebase credential
 
 func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
   // ...
@@ -125,7 +125,7 @@ func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError err
   // ...
 }
 
-#### Finally, authenticate with Firebase using the credential:
+## [x] Finally, authenticate with Firebase using the credential:
 
 Auth.auth().signIn(with: credential) { (authResult, error) in
   if let error = error {
@@ -174,7 +174,7 @@ Auth.auth().signIn(with: credential) { (authResult, error) in
   // ...
 }
 
-#### After a user signs in for the first time, a new user account is created and linked to the credentials—that is, the user name and password, phone number, or auth provider information—the user signed in with. This new account is stored as part of your Firebase project, and can be used to identify a user across every app in your project, regardless of how the user signs in.
+## [x] After a user signs in for the first time, a new user account is created and linked to the credentials—that is, the user name and password, phone number, or auth provider information—the user signed in with. This new account is stored as part of your Firebase project, and can be used to identify a user across every app in your project, regardless of how the user signs in.
 
 In your apps, you can get the user's basic profile information from the FIRUser object. See Manage Users.
 
