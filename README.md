@@ -185,6 +185,42 @@ do {
   print ("Error signing out: %@", signOutError)
 }
   
+  
+### Get the currently signed-in user : The recommended way to get the current user is by setting a listener on the Auth object:
+
+handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+  // ...
+}
+
+#### By using a listener, you ensure that the Auth object isn't in an intermediate state—such as initialization—when you get the current user. You can also get the currently signed-in user by using the currentUser property. If a user isn't signed in, currentUser is nil:
+
+if Auth.auth().currentUser != nil {
+  // User is signed in.
+  // ...
+} else {
+  // No user is signed in.
+  // ...
+}
+
+## 2. Profile Page:
+# Get a user's profile
+
+let user = Auth.auth().currentUser
+if let user = user {
+  // The user's ID, unique to the Firebase project.
+  // Do NOT use this value to authenticate with your backend server,
+  // if you have one. Use getTokenWithCompletion:completion: instead.
+  let uid = user.uid
+  let email = user.email
+  let photoURL = user.photoURL
+  var multiFactorString = "MultiFactor: "
+  for info in user.multiFactor.enrolledFactors {
+    multiFactorString += info.displayName ?? "[DispayName]"
+    multiFactorString += " "
+  }
+  // ...
+}
+
 
 
 
