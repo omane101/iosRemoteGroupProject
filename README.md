@@ -68,3 +68,10 @@ RTFT is a Yelp like application that can allow users to view recent reviews of b
 ## Wireframes
 <img src="https://i.imgur.com/IdvEUEI.png" width=800><br>
 
+# Networking
+
+## Authentication with google account
+
+pod 'Firebase/Auth'
+pod 'GoogleSignIn'
+
