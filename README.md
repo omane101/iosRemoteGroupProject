@@ -71,138 +71,144 @@ RTFT is a Yelp like application that can allow users to view recent reviews of b
 # Networking
 ### 1.	Login Page
 
-## Authentication with google account
+## Authentication with google account:
 
-pod 'Firebase/Auth'
-pod 'GoogleSignIn'
-
-##  In your app delegate, import the following header files:
-
-import Firebase
-import GoogleSignIn
-
-##  In the view controller of your sign-in view, import the following header files:
-
-import Firebase
-import GoogleSignIn
-
- ##  In the app delegate, implement the GIDSignInDelegate protocol to handle the sign-in process by defining the following methods:
-
-func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-  // ...
-  if let error = error {
-    // ...
-    return
-  }
-
-  guard let authentication = user.authentication else { return }
-  let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                    accessToken: authentication.accessToken)
-  // ...
-}
-
-func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-    // Perform any operations when the user disconnects from app here.
-    // ...
-}
-
-##  In the view controller, override the viewDidLoad method to set the presenting view controller of the GIDSignIn object, and (optionally) to sign in silently when possible.
-
-GIDSignIn.sharedInstance()?.presentingViewController = self
-GIDSignIn.sharedInstance().signIn()
-
-##  In the signIn:didSignInForUser:withError: method, get a Google ID token and Google access token from the GIDAuthentication object and exchange them for a Firebase credential
-
-func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-  // ...
-  if let error = error {
-    // ...
-    return
-  }
-
-  guard let authentication = user.authentication else { return }
-  let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                    accessToken: authentication.accessToken)
-  // ...
-}
-
-##  Finally, authenticate with Firebase using the credential:
-
-Auth.auth().signIn(with: credential) { (authResult, error) in
-  if let error = error {
-    let authError = error as NSError
-    if (isMFAEnabled && authError.code == AuthErrorCode.secondFactorRequired.rawValue) {
-      // The user is a multi-factor user. Second factor challenge is required.
-      let resolver = authError.userInfo[AuthErrorUserInfoMultiFactorResolverKey] as! MultiFactorResolver
-      var displayNameString = ""
-      for tmpFactorInfo in (resolver.hints) {
-        displayNameString += tmpFactorInfo.displayName ?? ""
-        displayNameString += " "
-      }
-      self.showTextInputPrompt(withMessage: "Select factor to sign in\n\(displayNameString)", completionBlock: { userPressedOK, displayName in
-        var selectedHint: PhoneMultiFactorInfo?
-        for tmpFactorInfo in resolver.hints {
-          if (displayName == tmpFactorInfo.displayName) {
-            selectedHint = tmpFactorInfo as? PhoneMultiFactorInfo
-          }
-        }
-        PhoneAuthProvider.provider().verifyPhoneNumber(with: selectedHint!, uiDelegate: nil, multiFactorSession: resolver.session) { verificationID, error in
-          if error != nil {
-            print("Multi factor start sign in failed. Error: \(error.debugDescription)")
-          } else {
-            self.showTextInputPrompt(withMessage: "Verification code for \(selectedHint?.displayName ?? "")", completionBlock: { userPressedOK, verificationCode in
-              let credential: PhoneAuthCredential? = PhoneAuthProvider.provider().credential(withVerificationID: verificationID!, verificationCode: verificationCode!)
-              let assertion: MultiFactorAssertion? = PhoneMultiFactorGenerator.assertion(with: credential!)
-              resolver.resolveSignIn(with: assertion!) { authResult, error in
-                if error != nil {
-                  print("Multi factor finanlize sign in failed. Error: \(error.debugDescription)")
-                } else {
-                  self.navigationController?.popViewController(animated: true)
-                }
-              }
-            })
-          }
-        }
-      })
-    } else {
-      self.showMessagePrompt(error.localizedDescription)
-      return
-    }
-    // ...
-    return
-  }
-  // User is signed in
-  // ...
-}
-
-## Sign out
-To sign out a user, call signOut:.
-
-      let firebaseAuth = Auth.auth()
-do {
-  try firebaseAuth.signOut()
-} catch let signOutError as NSError {
-  print ("Error signing out: %@", signOutError)
-}
+https://firebase.google.com/docs/auth/ios/google-signin#swift_5
   
-  
-### Get the currently signed-in user : The recommended way to get the current user is by setting a listener on the Auth object:
+## Authentication with Facebook account:
 
-handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-  // ...
-}
+https://firebase.google.com/docs/auth/ios/facebook-login
 
-#### By using a listener, you ensure that the Auth object isn't in an intermediate state—such as initialization—when you get the current user. You can also get the currently signed-in user by using the currentUser property. If a user isn't signed in, currentUser is nil:
+## Authentication with Apple account:
 
-if Auth.auth().currentUser != nil {
-  // User is signed in.
-  // ...
-} else {
-  // No user is signed in.
-  // ...
-}
+https://firebase.google.com/docs/auth/ios/apple
+
 
 ## 2. Profile Page:
 https://firebase.google.com/docs/auth/ios/manage-users
 
+## 3. Feed Page:
 
+/businesses/{id}
+This endpoint returns detailed business content. Normally, you would get the Business ID from /businesses/search, /businesses/search/phone, /transactions/{transaction_type}/search or /autocomplete. To retrieve review excerpts for a business, please refer to our Reviews endpoint (/businesses/{id}/reviews)
+
+Note: at this time, the API does not return businesses without any reviews.
+
+Request
+GET https://api.yelp.com/v3/businesses/{id}
+Parameters
+Name	Type	Description
+locale	string	Optional. Specify the locale into which to localize the business information. See the list of supported locales. Defaults to en_US.
+Response Body
+{
+  "id": "WavvLdfdP6g8aZTtbBQHTw",
+  "alias": "gary-danko-san-francisco",
+  "name": "Gary Danko",
+  "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/CPc91bGzKBe95aM5edjhhQ/o.jpg",
+  "is_claimed": true,
+  "is_closed": false,
+  "url": "https://www.yelp.com/biz/gary-danko-san-francisco?adjust_creative=wpr6gw4FnptTrk1CeT8POg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=wpr6gw4FnptTrk1CeT8POg",
+  "phone": "+14157492060",
+  "display_phone": "(415) 749-2060",
+  "review_count": 5296,
+  "categories": [
+    {
+      "alias": "newamerican",
+      "title": "American (New)"
+    },
+    {
+      "alias": "french",
+      "title": "French"
+    },
+    {
+      "alias": "wine_bars",
+      "title": "Wine Bars"
+    }
+  ],
+  "rating": 4.5,
+  "location": {
+    "address1": "800 N Point St",
+    "address2": "",
+    "address3": "",
+    "city": "San Francisco",
+    "zip_code": "94109",
+    "country": "US",
+    "state": "CA",
+    "display_address": [
+      "800 N Point St",
+      "San Francisco, CA 94109"
+    ],
+    "cross_streets": ""
+  },
+  "coordinates": {
+    "latitude": 37.80587,
+    "longitude": -122.42058
+  },
+  "photos": [
+    "https://s3-media2.fl.yelpcdn.com/bphoto/CPc91bGzKBe95aM5edjhhQ/o.jpg",
+    "https://s3-media4.fl.yelpcdn.com/bphoto/FmXn6cYO1Mm03UNO5cbOqw/o.jpg",
+    "https://s3-media4.fl.yelpcdn.com/bphoto/HZVDyYaghwPl2kVbvHuHjA/o.jpg"
+  ],
+  "price": "$$$$",
+  "hours": [
+    {
+      "open": [
+        {
+          "is_overnight": false,
+          "start": "1730",
+          "end": "2200",
+          "day": 0
+        },
+        {
+          "is_overnight": false,
+          "start": "1730",
+          "end": "2200",
+          "day": 1
+        },
+        {
+          "is_overnight": false,
+          "start": "1730",
+          "end": "2200",
+          "day": 2
+        },
+        {
+          "is_overnight": false,
+          "start": "1730",
+          "end": "2200",
+          "day": 3
+        },
+        {
+          "is_overnight": false,
+          "start": "1730",
+          "end": "2200",
+          "day": 4
+        },
+        {
+          "is_overnight": false,
+          "start": "1730",
+          "end": "2200",
+          "day": 5
+        },
+        {
+          "is_overnight": false,
+          "start": "1730",
+          "end": "2200",
+          "day": 6
+        }
+      ],
+      "hours_type": "REGULAR",
+      "is_open_now": false
+    }
+  ],
+  "transactions": [],
+  "special_hours": [
+    {
+      "date": "2019-02-07",
+      "is_closed": null,
+      "start": "1600",
+      "end": "2000",
+      "is_overnight": false
+    }
+  ]
+  
+  
