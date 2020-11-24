@@ -87,3 +87,6 @@ https://firebase.google.com/docs/auth/ios/apple
 ## 2. Profile Page:
 https://firebase.google.com/docs/auth/ios/manage-users
 
+## DEMO
+<img src="https://i.imgur.com/peQAljA.gif" width=200><br>
+
