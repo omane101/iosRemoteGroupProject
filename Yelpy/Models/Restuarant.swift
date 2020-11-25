@@ -11,17 +11,17 @@ import Parse
 
 class Restaurant {
     
-    var imageURL: URL?
-    var url: URL?
-    var name: String
-    var mainCategory: String
-    var phone: String
-    var rating: Double
-    var reviews: Int
-    var id: String
-    var latitude: Double
-    var longitude: Double
-    var activity: String
+    var imageURL: URL? //The image URL for the restaurant
+    var url: URL? //The URL for the webpage
+    var name: String //The name of the location
+    var mainCategory: String //The cuisine type
+    var phone: String //The phone number
+    var rating: Double //The yelp rating
+    var reviews: Int //The number of reviews
+    var id: String //The unique yelp ID
+    var latitude: Double //The latitude of the location
+    var longitude: Double //The longitude of the location
+    var activity: String //The activity rating of the location
     
     init(dict:[String: Any]){
         imageURL = URL(string: dict["image_url"] as! String)
@@ -37,21 +37,57 @@ class Restaurant {
         activity = Restaurant.getActivity(id: id)
     }
     
+    
+    /*
+     This function makes a GET request to our database to retrieve the current rating
+     value. It will then assign a string to return based on the value that is stored.
+     */
     static func getActivity(id: String) -> String {
         
         //print(id)
+        
         var returnString = "Current Activity Level: Normal"
         
+        //Query the DB
         let query = PFQuery(className: "locations")
+        
+        //Find the specific location
         query.whereKey("businessID", equalTo: id)
         
+        //Sync request
         do {
             let results: [PFObject] = try query.findObjects()
             //print(results)
-            let activityLevel = results[0].object(forKey: "currentRating") as! Int
             
-            if (activityLevel != 0) {
-                returnString = "Very Empty"
+            if results.isEmpty {
+                returnString = "Current Activity Level: Normal"
+                
+                //Create the new location
+                let parseObject = PFObject(className:"locations")
+
+                parseObject["businessID"] = id
+
+                // Saves the new object.
+                parseObject.saveInBackground {
+                  (success: Bool, error: Error?) in
+                  if (success) {
+                    // The object has been saved.
+                    print("you were saved")
+                    print(parseObject)
+                    //returnString = "Current Activity Level: Normal"
+                  } else {
+                    // There was a problem, check error.description
+                    print(error!.localizedDescription)
+                  }
+                }
+            }
+            else{
+                let activityLevel = results[0].object(forKey: "currentRating")
+            
+            
+                if (activityLevel as! Int != 0) {
+                    returnString = "Current Activity Level: Very Empty"
+                }
             }
         } catch {
             print(error)
@@ -111,6 +147,8 @@ class Restaurant {
         return categories[0]["title"] as! String
     }
     
+    //This function converts a pair of coordinates from an array of strings
+    //to a double value based on the position provided. 0 = Latitude, 1 = Longitude
     static func getCoordinates(dict: [String:Any], position: Int) -> Double {
         let coordinates = dict["coordinates"] as! [String: Any]
         //print(coordinates["latitude"] as! Float)

@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import AlamofireImage
+import Parse
 
 class RestaurantDetailViewController: UIViewController {
 
@@ -70,9 +71,46 @@ class RestaurantDetailViewController: UIViewController {
     //4.)If the vote was too recent:
     //   a.)Alert to tell user vote was not counted
     
+    
+    //Basic idea behind voting system
+    //A too busy vote pushes the rating towards the negative
+    //A very empty vote pushes the rating towards the positive
+    //A normal vote pushes towards the positive if it is negative, and vice versa or keeps it at 0 if it already is at 0.
+    
+    
     @IBAction func busyButton(_ sender: Any) {
         
         print("busy button")
+        
+        //Query the DB
+        let query = PFQuery(className: "locations")
+        
+        //Find the specific location
+        query.whereKey("businessID", equalTo: r.id)
+        
+        query.getFirstObjectInBackground { (object: PFObject?, error: Error?) in
+            if let error = error {
+                // The query failed
+                print(error.localizedDescription)
+
+            } else if let object = object {
+
+                var currentActivity = object["currentRating"] as! Int
+                
+                currentActivity -= 1
+                
+                object["currentRating"] = currentActivity
+                
+                object.saveInBackground()
+                
+                print("Success saving the vote")
+                
+            } else {
+                // The query succeeded but no matching result was found
+                print("Something weird happened")
+    
+            }
+        }
         
         let alert = UIAlertController(title: "Thanks!", message: "We've counted your vote!", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -82,7 +120,45 @@ class RestaurantDetailViewController: UIViewController {
     @IBAction func normalButton(_ sender: Any) {
         
         print("normal button")
+    
+        //Query the DB
+        let query = PFQuery(className: "locations")
         
+        //Find the specific location
+        query.whereKey("businessID", equalTo: r.id)
+        
+        query.getFirstObjectInBackground { (object: PFObject?, error: Error?) in
+            if let error = error {
+                // The query failed
+                print(error.localizedDescription)
+
+            } else if let object = object {
+
+                var currentActivity = object["currentRating"] as! Int
+                
+                if(currentActivity < 0){
+                    currentActivity += 1
+                }
+                else if (currentActivity > 0){
+                    currentActivity -= 1
+                }
+                else{
+                    currentActivity = 0
+                }
+                
+                object["currentRating"] = currentActivity
+                
+                object.saveInBackground()
+                
+                print("Success saving the vote")
+                
+            } else {
+                // The query succeeded but no matching result was found
+                print("Something weird happened")
+    
+            }
+        }
+    
         let alert = UIAlertController(title: "Thanks!", message: "We've counted your vote!", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -92,6 +168,36 @@ class RestaurantDetailViewController: UIViewController {
     @IBAction func emptyButton(_ sender: Any) {
         
         print("empty button")
+        
+        //Query the DB
+        let query = PFQuery(className: "locations")
+        
+        //Find the specific location
+        query.whereKey("businessID", equalTo: r.id)
+        
+        query.getFirstObjectInBackground { (object: PFObject?, error: Error?) in
+            if let error = error {
+                // The query failed
+                print(error.localizedDescription)
+
+            } else if let object = object {
+
+                var currentActivity = object["currentRating"] as! Int
+                
+                currentActivity += 1
+                
+                object["currentRating"] = currentActivity
+                
+                object.saveInBackground()
+                
+                print("Success saving the vote")
+                
+            } else {
+                // The query succeeded but no matching result was found
+                print("Something weird happened")
+    
+            }
+        }
         
         let alert = UIAlertController(title: "Thanks!", message: "We've counted your vote!", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
