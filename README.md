@@ -87,7 +87,7 @@ https://firebase.google.com/docs/auth/ios/apple
 ## 2. Profile Page:
 https://firebase.google.com/docs/auth/ios/manage-users
 
-[embed]https://www.pdfpro.co/files/f7qk3mhbmzn-64f96f00[/embed]
+[embed]https://docs.google.com/document/d/1dO58Zj5YViR-KmVhDjTgRGqDu6dVih3hsFqCyJOER6w/edit?usp=sharing[/embed]
 
 ## DEMO
 <img src="https://i.imgur.com/peQAljA.gif" width=200><br>
