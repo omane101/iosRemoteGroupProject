@@ -88,5 +88,8 @@ https://firebase.google.com/docs/auth/ios/apple
 https://firebase.google.com/docs/auth/ios/manage-users
 
 ## DEMO
-<img src="https://i.imgur.com/peQAljA.gif" width=200><br>
+<img src="https://i.imgur.com/peQAljA.gif" width=250><br>
+<img src="https://i.imgur.com/YLXXWqK.gif" width=250><br>
+<img src="https://i.imgur.com/8hjf9Ij.gif" width=250><br>
+
 
