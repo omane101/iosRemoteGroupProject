@@ -86,61 +86,8 @@ https://firebase.google.com/docs/auth/ios/apple
 
 ## 2. Profile Page:
 https://firebase.google.com/docs/auth/ios/manage-users
-Yelp API – GET Request For Searching 
-Required Parameters for the API
-Name	Type	Description
-term	String	Used to search for food or restaurants
-Latitude	Decimal	Self-explanatory
-Longitude	Decimal	Self-explanatory
-Radius	Int	Self-explanatory
-Open_now	Boolean	Self-explanatory
-Any other filters you would like to add? https://www.yelp.com/developers/documentation/v3/business_search
-		
 
-Response – Highlighted are important
-Name	Type	Description
-total	int	Total number of business Yelp finds based on the search criteria. Sometimes, the value may exceed 1000. In such case, you still can only get up to 1000 businesses using multiple queries and combinations of the "limit" and "offset" parameters.
-businesses	object[]	List of business Yelp finds based on the search criteria.
-businesses[x].categories	object[]	List of category title and alias pairs associated with this business.
-businesses[x].categories[x].alias	string	Alias of a category, when searching for business in certain categories, use alias rather than the title.
-businesses[x].categories[x].title	string	Title of a category for display purpose.
-businesses[x].coordinates	object	Coordinates of this business.
-businesses[x].coordinates.latitude	decimal	Latitude of this business.
-businesses[x].coordinates.longitude	decimal	Longitude of this business.
-businesses[x].display_phone	string	Phone number of the business formatted nicely to be displayed to users. The format is the standard phone number format for the business's country.
-businesses[x].distance	decimal	Distance in meters from the search location. This returns meters regardless of the locale.
-businesses[x].id	string	Unique Yelp ID of this business. Example: '4kMBvIEWPxWkWKFN__8SxQ'
-businesses[x].alias	string	Unique Yelp alias of this business. Can contain unicode characters. Example: 'yelp-san-francisco'. Also see What's the difference between the Yelp business ID and business alias?
-
-businesses[x].image_url	string	URL of photo for this business.
-businesses[x].is_closed	bool	Whether business has been (permanently) closed
-businesses[x].location	object	Location of this business, including address, city, state, zip code and country.
-businesses[x].location.address1	string	Street address of this business.
-businesses[x].location.address2	string	Street address of this business, continued.
-businesses[x].location.address3	string	Street address of this business, continued.
-businesses[x].location.city	string	City of this business.
-businesses[x].location.country	string	ISO 3166-1 alpha-2 country code of this business.
-businesses[x].location.display_address	string[]	Array of strings that if organized vertically give an address that is in the standard address format for the business's country.
-businesses[x].location.state	string	ISO 3166-2 (with a few exceptions) state code of this business.
-businesses[x].location.zip_code	string	Zip code of this business.
-
-businesses[x].name	string	Name of this business.
-businesses[x].phone	string	Phone number of the business.
-businesses[x].price	string	Price level of the business. Value is one of $, $$, $$$ and $$$$.
-businesses[x].rating	decimal	Rating for this business (value ranges from 1, 1.5, ... 4.5, 5).
-businesses[x].review_count	int	Number of reviews for this business.
-businesses[x].url	string	URL for business page on Yelp.
-businesses[x].transactions	string[]	List of Yelp transactions that the business is registered for. Current supported values are pickup, delivery and restaurant_reservation.
-region	dict	Suggested area in a map to display results in.
-region.center	dict	Center position of map area.
-region.center.latitude	decimal	Latitude position of map bounds center.
-region.center.longitude	decimal	Longitude position of map bounds center.
-
-Yelp GET Request For Specific Individual Business
-GET https://api.yelp.com/v3/businesses/{id}
-The same response values will be used above.
-
-
+[embed]https://www.pdfpro.co/files/f7qk3mhbmzn-64f96f00[/embed]
 
 ## DEMO
 <img src="https://i.imgur.com/peQAljA.gif" width=200><br>
