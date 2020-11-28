@@ -1,4 +1,4 @@
-Unit 8: Group Milestone - README Example
+Unit 10: Group Milestone - README Example
 ===
 
 # Real Time Foot Traffic Application
