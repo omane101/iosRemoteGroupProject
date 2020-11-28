@@ -22,6 +22,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signupButton: UIButton!
     
    
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     
     override func viewDidLoad() {
@@ -34,8 +35,27 @@ class SignUpViewController: UIViewController {
         
         // add the left Image in the password field
         let passwordImage = UIImage(named: "password")
-        addLeftImageTo(TetxField: password, andImage: passwordImage!)    }
+        addLeftImageTo(TetxField: password, andImage: passwordImage!)
+        // Tap Gesture
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+        
+        
+        
+    }
     
+    
+    @IBAction func onTap(_ sender: Any) {
+    }
+    
+    
+    // Clear the input field
+    func clearTextField (username: UITextField, password: UITextField) {
+        var _username = username.text!
+        var _password = password.text!
+       _username = ""
+       _password = ""
+    }
     
     // Text fields effects
     
@@ -111,10 +131,16 @@ class SignUpViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func success() {
+        let alert = UIAlertController(title: "Thank You", message: "User registered successfully", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
     @IBAction func onSignupPress(_ sender: Any) {
         
-        let _username = username.text!
-        let _password = password.text!
+        var _username = username.text!
+        var _password = password.text!
         if (_username == "" || _password == "") {
             errorHandling()
         } else {
@@ -124,6 +150,9 @@ class SignUpViewController: UIViewController {
                     return
                 }
                     print("User register successufully")
+                self.username.text = ""
+                self.password.text = ""
+                 self.success()
                 
                     
                 

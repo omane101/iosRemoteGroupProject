@@ -12,12 +12,17 @@ import GoogleSignIn
 
 class LoginViewController: UIViewController {
 
+   
     
     @IBOutlet weak var username: UITextField!
     
     @IBOutlet weak var password: UITextField!
     
     @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bordersShadow()
@@ -25,6 +30,10 @@ class LoginViewController: UIViewController {
         addLeftImageTo(TetxField: username, andImage: usernameImage!)
         let passwordImage = UIImage(named: "password")
         addLeftImageTo(TetxField: password, andImage: passwordImage!)
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+
         
     }
     
@@ -100,6 +109,14 @@ class LoginViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
+    func success() {
+        let alert = UIAlertController(title: "Thank You", message: "User successfull logged in", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    @IBAction func onTap(_ sender: Any) {
+    }
     
     
     @IBAction func onLoginPress(_ sender: Any) {
@@ -114,6 +131,12 @@ class LoginViewController: UIViewController {
                     errorHandling()
                 } else {
                     print("User Logged in Successfully")
+                    self.username.text = ""
+                    self.password.text = ""
+                    self.success()
+                    
+                  //  self.performSegue(withIdentifier: "Login", sender: self)
+                    
                 }
             }
         }
