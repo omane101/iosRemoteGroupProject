@@ -1,4 +1,4 @@
-Unit 8: Group Milestone - README Example
+Unit 10: Group Milestone - README Example
 ===
 
 # Real Time Foot Traffic Application
@@ -87,9 +87,14 @@ https://firebase.google.com/docs/auth/ios/apple
 ## 2. Profile Page:
 https://firebase.google.com/docs/auth/ios/manage-users
 
+## The Data Modeling:
+https://docs.google.com/document/d/1dO58Zj5YViR-KmVhDjTgRGqDu6dVih3hsFqCyJOER6w/edit?usp=sharing
+
 ## DEMO
 <img src="https://i.imgur.com/peQAljA.gif" width=250><br>
 <img src="https://i.imgur.com/YLXXWqK.gif" width=250><br>
 <img src="https://i.imgur.com/8hjf9Ij.gif" width=250><br>
 
+=======
+<img src="http://g.recordit.co/rTiKFFIDAQ.gif" width=200><br>
 
