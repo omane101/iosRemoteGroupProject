@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class RestaurantsViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource {
+class RestaurantsViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
     
     // ––––– TODO: Add storyboard Items (i.e. tableView + Cell + configurations for Cell + cell outlets)
@@ -114,12 +114,14 @@ class RestaurantsViewController: UIViewController, UISearchBarDelegate, UITableV
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        let cell = sender as! UITableViewCell
-        
-        if let indexPath = tableView.indexPath(for: cell){
-            let r = restaurantsArray[indexPath.row]
-            let detailViewContoller = segue.destination as! RestaurantDetailViewController
-            detailViewContoller.r = r
+        if(segue.identifier != "ProfileSegue"){
+            let cell = sender as! UITableViewCell
+            
+            if let indexPath = tableView.indexPath(for: cell){
+                let r = restaurantsArray[indexPath.row]
+                let detailViewContoller = segue.destination as! RestaurantDetailViewController
+                detailViewContoller.r = r
+            }
         }
     }
 
