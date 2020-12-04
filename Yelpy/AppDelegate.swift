@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+<<<<<<< HEAD
         let parseConfig = ParseClientConfiguration {
                         $0.applicationId = "3GhjILvjyKyp3SxETOMq0ae8UyBYxTES6NHOHcHQ" // <- UPDATE
                         $0.clientKey = "4XsXIXZWl3wDem5Ijbj5odYMvVRkwZk4WIBYr3sB" // <- UPDATE
@@ -24,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 Parse.initialize(with: parseConfig)
                 
+=======
+        
+>>>>>>> login
 
         FirebaseApp.configure()
     

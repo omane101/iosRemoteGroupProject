@@ -8,8 +8,11 @@
 		<dict>
 			<key>orderHint</key>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<integer>19</integer>
 =======
+=======
+>>>>>>> login
 			<integer>1</integer>
 		</dict>
 	</dict>
@@ -19,6 +22,9 @@
 		<dict>
 			<key>primary</key>
 			<true/>
+<<<<<<< HEAD
+>>>>>>> login
+=======
 >>>>>>> login
 		</dict>
 	</dict>

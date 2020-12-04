@@ -170,8 +170,13 @@
 				BBEBF104247738A50044AFE0 /* Sources */,
 				BBEBF105247738A50044AFE0 /* Frameworks */,
 				BBEBF106247738A50044AFE0 /* Resources */,
+<<<<<<< HEAD
 				5A996F975A5F060E68A9761A /* [CP] Embed Pods Frameworks */,
 				4B3F902F3BDE40B2B1DE0104 /* [CP] Copy Pods Resources */,
+=======
+				D8B9687F89208270A941002A /* [CP] Embed Pods Frameworks */,
+				19A5BAF267C21A3507D0AB10 /* [CP] Copy Pods Resources */,
+>>>>>>> login
 			);
 			buildRules = (
 			);
@@ -231,7 +236,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+<<<<<<< HEAD
 		4B3F902F3BDE40B2B1DE0104 /* [CP] Copy Pods Resources */ = {
+=======
+		19A5BAF267C21A3507D0AB10 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E029D88624B626145BC69BB /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> login
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
