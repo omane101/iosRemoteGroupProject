@@ -110,9 +110,11 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true)
     }
     func success() {
+        /*
         let alert = UIAlertController(title: "Thank You", message: "User successfull logged in", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
         self.present(alert, animated: true)
+        */
     }
     
     @IBAction func onTap(_ sender: Any) {
@@ -128,7 +130,7 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: username.text!, password: password.text!) { [self](result, error) in
                 if let error = error {
                     print("Error:\(error.localizedDescription)")
-                    errorHandling()
+                    self.errorHandling()
                 } else {
                     print("User Logged in Successfully")
                     self.username.text = ""
