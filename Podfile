@@ -9,5 +9,7 @@ target 'Yelpy' do
   pod 'Alamofire'
   pod 'AlamofireImage'
   pod 'Parse'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 
 end

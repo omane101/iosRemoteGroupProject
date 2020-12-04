@@ -10,8 +10,9 @@
 		7C03CCCA2523DE0100DCF747 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C03CCC92523DE0100DCF747 /* RestaurantCell.swift */; };
 		7CB7D2A62527B6F000AA9DCF /* Restuarant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D2A52527B6F000AA9DCF /* Restuarant.swift */; };
 		7CB7D2A82527DE2100AA9DCF /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D2A72527DE2100AA9DCF /* RestaurantDetailViewController.swift */; };
-		932606E825704EE00090D563 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932606E725704EE00090D563 /* UserProfileViewController.swift */; };
-		932606EB25705DCA0090D563 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932606EA25705DCA0090D563 /* SettingsViewController.swift */; };
+		89965C02256F114A001C9F2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89965C01256F114A001C9F2C /* LoginViewController.swift */; };
+		89965C962570DBD4001C9F2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89965C952570DBD4001C9F2C /* GoogleService-Info.plist */; };
+		89965C992570E65C001C9F2C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89965C982570E65C001C9F2C /* SignUpViewController.swift */; };
 		BB47B3AA247739640029FFF6 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47B3A9247739640029FFF6 /* API.swift */; };
 		BB47B3AF2477426A0029FFF6 /* exampleAPI.json in Resources */ = {isa = PBXBuildFile; fileRef = BB47B3AE2477426A0029FFF6 /* exampleAPI.json */; };
 		BB47B3B82477565E0029FFF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB47B3B62477565E0029FFF6 /* Main.storyboard */; };
@@ -30,8 +31,11 @@
 		7C03CCC92523DE0100DCF747 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		7CB7D2A52527B6F000AA9DCF /* Restuarant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restuarant.swift; sourceTree = "<group>"; };
 		7CB7D2A72527DE2100AA9DCF /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
-		932606E725704EE00090D563 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		932606EA25705DCA0090D563 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		89965C01256F114A001C9F2C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		89965C6725707910001C9F2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89965C6825707912001C9F2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89965C952570DBD4001C9F2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89965C982570E65C001C9F2C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BB47B3A9247739640029FFF6 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BB47B3AE2477426A0029FFF6 /* exampleAPI.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleAPI.json; sourceTree = "<group>"; };
 		BB47B3B72477565E0029FFF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 		7CB7D2A42527B6CC00AA9DCF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				89965C6825707912001C9F2C /* GoogleService-Info.plist */,
 				7CB7D2A52527B6F000AA9DCF /* Restuarant.swift */,
 			);
 			path = Models;
@@ -94,8 +99,8 @@
 			children = (
 				7CB7D2A72527DE2100AA9DCF /* RestaurantDetailViewController.swift */,
 				BBEBF10F247738A50044AFE0 /* RestaurantsViewController.swift */,
-				932606E725704EE00090D563 /* UserProfileViewController.swift */,
-				932606EA25705DCA0090D563 /* SettingsViewController.swift */,
+				89965C01256F114A001C9F2C /* LoginViewController.swift */,
+				89965C982570E65C001C9F2C /* SignUpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -138,8 +143,10 @@
 		BBEBF10A247738A50044AFE0 /* Yelpy */ = {
 			isa = PBXGroup;
 			children = (
+				89965C952570DBD4001C9F2C /* GoogleService-Info.plist */,
 				7CB7D2A42527B6CC00AA9DCF /* Models */,
 				BBEBF114247738A50044AFE0 /* Assets.xcassets */,
+				89965C6725707910001C9F2C /* GoogleService-Info.plist */,
 				BBEBF10B247738A50044AFE0 /* AppDelegate.swift */,
 				BBEBF10D247738A50044AFE0 /* SceneDelegate.swift */,
 				BB47B3AE2477426A0029FFF6 /* exampleAPI.json */,
@@ -163,7 +170,8 @@
 				BBEBF104247738A50044AFE0 /* Sources */,
 				BBEBF105247738A50044AFE0 /* Frameworks */,
 				BBEBF106247738A50044AFE0 /* Resources */,
-				D8B9687F89208270A941002A /* [CP] Embed Pods Frameworks */,
+				5A996F975A5F060E68A9761A /* [CP] Embed Pods Frameworks */,
+				4B3F902F3BDE40B2B1DE0104 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,7 +189,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = memo;
 				TargetAttributes = {
 					BBEBF107247738A50044AFE0 = {
@@ -214,6 +222,7 @@
 			files = (
 				BBEBF118247738A50044AFE0 /* LaunchScreen.storyboard in Resources */,
 				BB47B3AF2477426A0029FFF6 /* exampleAPI.json in Resources */,
+				89965C962570DBD4001C9F2C /* GoogleService-Info.plist in Resources */,
 				BBEBF115247738A50044AFE0 /* Assets.xcassets in Resources */,
 				BB47B3B82477565E0029FFF6 /* Main.storyboard in Resources */,
 			);
@@ -222,6 +231,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4B3F902F3BDE40B2B1DE0104 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A996F975A5F060E68A9761A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9E029D88624B626145BC69BB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,23 +287,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D8B9687F89208270A941002A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yelpy/Pods-Yelpy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -269,14 +295,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C03CCCA2523DE0100DCF747 /* RestaurantCell.swift in Sources */,
-				932606E825704EE00090D563 /* UserProfileViewController.swift in Sources */,
 				BBEBF110247738A50044AFE0 /* RestaurantsViewController.swift in Sources */,
 				7CB7D2A62527B6F000AA9DCF /* Restuarant.swift in Sources */,
+				89965C992570E65C001C9F2C /* SignUpViewController.swift in Sources */,
 				BB47B3AA247739640029FFF6 /* API.swift in Sources */,
+				89965C02256F114A001C9F2C /* LoginViewController.swift in Sources */,
 				BBEBF10C247738A50044AFE0 /* AppDelegate.swift in Sources */,
 				7CB7D2A82527DE2100AA9DCF /* RestaurantDetailViewController.swift in Sources */,
 				BBEBF10E247738A50044AFE0 /* SceneDelegate.swift in Sources */,
-				932606EB25705DCA0090D563 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +354,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -388,6 +415,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
