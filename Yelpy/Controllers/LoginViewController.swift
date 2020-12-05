@@ -104,9 +104,9 @@ class LoginViewController: UIViewController {
         
     }
 
-    func errorHandling() {
-        let alert = UIAlertController(title: "Invalid Login", message: "Incorrect username or password", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+    func errorHandling(error: String) {
+        let alert = UIAlertController(title: "Invalid Login", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
     func success() {
@@ -125,19 +125,20 @@ class LoginViewController: UIViewController {
         let _username = username.text!
         let _password = password.text!
         if (_username == "" || _password == "") {
-            errorHandling()
+            errorHandling(error: "You did not enter your password or username.")
         } else {
             Auth.auth().signIn(withEmail: username.text!, password: password.text!) { [self](result, error) in
                 if let error = error {
                     print("Error:\(error.localizedDescription)")
-                    self.errorHandling()
+                    self.errorHandling(error: error.localizedDescription)
+
                 } else {
                     print("User Logged in Successfully")
                     self.username.text = ""
                     self.password.text = ""
                     self.success()
-                    
-                  //  self.performSegue(withIdentifier: "Login", sender: self)
+    
+                    self.performSegue(withIdentifier: "successLogin", sender: self)
                     
                 }
             }

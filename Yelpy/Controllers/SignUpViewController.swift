@@ -125,35 +125,40 @@ class SignUpViewController: UIViewController {
     }
 
     
-    func errorHandling() {
-        let alert = UIAlertController(title: "Invalid Information", message: "Incorrect username or password", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+    func errorHandling(error: String) {
+        let alert = UIAlertController(title: "Invalid Information", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
     
     func success() {
+        /*
         let alert = UIAlertController(title: "Thank You", message: "User registered successfully", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
         self.present(alert, animated: true)
+        */
     }
     
     @IBAction func onSignupPress(_ sender: Any) {
         
-        var _username = username.text!
-        var _password = password.text!
+        let _username = username.text!
+        let _password = password.text!
         if (_username == "" || _password == "") {
-            errorHandling()
+            errorHandling(error: "You must enter a username and password")
         } else {
             Auth.auth().createUser(withEmail: _username, password: _password) {(result, error) in
                 if let error =  error {
-                    print("Failed to sig up", error.localizedDescription)
+                    print("Failed to sign up", error.localizedDescription)
+                    let combinedError = "Failed to sign up. " + error.localizedDescription
+                    self.errorHandling(error: combinedError)
                     return
                 }
                     print("User register successufully")
                 self.username.text = ""
                 self.password.text = ""
-                 self.success()
+                self.success()
                 
+                self.performSegue(withIdentifier: "successSignUp", sender: self)
                     
                 
             }
