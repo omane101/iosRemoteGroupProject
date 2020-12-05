@@ -142,12 +142,14 @@ class RestaurantsViewController: UIViewController, UISearchBarDelegate, UITableV
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        let cell = sender as! UITableViewCell
-        
-        if let indexPath = tableView.indexPath(for: cell){
-            let r = restaurantsArray[indexPath.row]
-            let detailViewContoller = segue.destination as! RestaurantDetailViewController
-            detailViewContoller.r = r
+        if(segue.identifier != "ProfileSegue"){
+            let cell = sender as! UITableViewCell
+            
+            if let indexPath = tableView.indexPath(for: cell){
+                let r = restaurantsArray[indexPath.row]
+                let detailViewContoller = segue.destination as! RestaurantDetailViewController
+                detailViewContoller.r = r
+            }
         }
     }
 
