@@ -10,9 +10,12 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class LoginViewController: UIViewController {
 
-   
+class LoginViewController: UIViewController, GIDSignInDelegate {
+    
+    
+
+    var SFAuthenicationViewController: UIViewController!
     
     @IBOutlet weak var username: UITextField!
     
@@ -34,8 +37,19 @@ class LoginViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
 
+    
+        GIDSignIn.sharedInstance()?.delegate = self
         
     }
+    
+    
+//    fileprivate func googleLogin() {
+//            let googleButton = GIDSignInButton()
+//            googleButton.frame = CGRect(x: 20, y: 525, width: view.frame.width - 40, height: 70)
+//            view.addSubview(googleButton)
+//        }
+           
+
     
     
     // Text fields effects
@@ -118,6 +132,21 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onTap(_ sender: Any) {
+    }
+    
+    
+    @IBAction func GoogleLogin(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
+        
+    }
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("Error:\(error.localizedDescription)")
+            self.errorHandling(error: error.localizedDescription)
+        }
+        self.performSegue(withIdentifier: "successLogin", sender: self)
+        
     }
     
     

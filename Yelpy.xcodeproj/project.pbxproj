@@ -10,6 +10,7 @@
 		7C03CCCA2523DE0100DCF747 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C03CCC92523DE0100DCF747 /* RestaurantCell.swift */; };
 		7CB7D2A62527B6F000AA9DCF /* Restuarant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D2A52527B6F000AA9DCF /* Restuarant.swift */; };
 		7CB7D2A82527DE2100AA9DCF /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D2A72527DE2100AA9DCF /* RestaurantDetailViewController.swift */; };
+		8948F0702581FCFD002C0192 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 8948F06F2581FCFD002C0192 /* GoogleService-Info (1).plist */; };
 		89965C02256F114A001C9F2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89965C01256F114A001C9F2C /* LoginViewController.swift */; };
 		89965C992570E65C001C9F2C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89965C982570E65C001C9F2C /* SignUpViewController.swift */; };
 		93D80504257B2ECA00A97D37 /* GoogleService-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 89965C6725707910001C9F2C /* GoogleService-Info.plist */; };
@@ -32,9 +33,9 @@
 		7C03CCC92523DE0100DCF747 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		7CB7D2A52527B6F000AA9DCF /* Restuarant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restuarant.swift; sourceTree = "<group>"; };
 		7CB7D2A72527DE2100AA9DCF /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		8948F06F2581FCFD002C0192 /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 		89965C01256F114A001C9F2C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		89965C6725707910001C9F2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		89965C6825707912001C9F2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89965C982570E65C001C9F2C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		93D80506257B302100A97D37 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		93D80507257B302100A97D37 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +76,7 @@
 		7CB7D2A42527B6CC00AA9DCF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				89965C6825707912001C9F2C /* GoogleService-Info.plist */,
+				8948F06F2581FCFD002C0192 /* GoogleService-Info (1).plist */,
 				7CB7D2A52527B6F000AA9DCF /* Restuarant.swift */,
 			);
 			path = Models;
@@ -226,6 +227,7 @@
 			files = (
 				BBEBF118247738A50044AFE0 /* LaunchScreen.storyboard in Resources */,
 				BB47B3AF2477426A0029FFF6 /* exampleAPI.json in Resources */,
+				8948F0702581FCFD002C0192 /* GoogleService-Info (1).plist in Resources */,
 				BBEBF115247738A50044AFE0 /* Assets.xcassets in Resources */,
 				BB47B3B82477565E0029FFF6 /* Main.storyboard in Resources */,
 			);
