@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AlamofireImage
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var userLocation: UILabel!
     @IBOutlet weak var username: UILabel!
@@ -20,6 +21,31 @@ class UserProfileViewController: UIViewController {
     }
     
 
+    @IBAction func onCamera(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            picker.sourceType  = .camera
+        } else {
+            picker.sourceType = .photoLibrary
+        }
+        
+        present(picker, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        
+        let size = CGSize(width: 300, height: 300)
+        let scaledImage = image.af.imageScaled(to: size)
+        userProfileImage.image = scaledImage
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
     /*
     // MARK: - Navigation
 
